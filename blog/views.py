@@ -23,3 +23,4 @@ def create(request):
     blog.save()
     #blog.id는 int형 이기때문에 str로 강제 형변환
     return redirect('/blog/'+str(blog.id))
+
