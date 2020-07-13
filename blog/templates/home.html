@@ -5,7 +5,7 @@
 {% block contents%}
 <body>
 <br>
-    {%for blog in blogs.all%}
+    {% for blog in posts %}
     <div class="card" style= "margin: 1rem 4rem auto;">
         <div class="card-body">
             <h1 class="card-title">제목 : {{blog.title}}</h1>
@@ -15,7 +15,26 @@
             <a href="{%url 'detail' blog.id%}">...more</a> </p>
         </div>
     </div>
-    {%endfor%}
+    {% endfor %}
+
+    <!--First Previous 3of4 Next Last-->
+    <div class ="container">
+        <!--First Previous-->
+        <br>
+        {% if posts.has_previous %}
+        <a class="btn btn-outline-secondary" href="?page=1">First</a>
+        <a class="btn btn-outline-secondary" href="?page={{posts.previous_page_number}}">Previous</a>
+        {% endif %}
+        <!-- 3 of 4-->
+        <span>{{posts.number}}</span>
+        <span>of</span>
+        <span>{{posts.paginator.num_pages}}</span>
+        <!--Next Last-->
+        {% if posts.has_next %}
+        <a class="btn btn-outline-secondary" href="?page={{posts.next_page_number}}">Next</a>
+        <a class="btn btn-outline-secondary" href="?page={{posts.paginator.num_page}}">Last</a>
+        {% endif %}
+    </div>
 </body>
 {% endblock %}
 
