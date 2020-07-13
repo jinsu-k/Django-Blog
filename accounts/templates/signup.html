@@ -1,0 +1,30 @@
+<!--base를 상속받음-->
+{% extends 'base.html' %}
+
+{% block contents %}
+<div class="container">
+
+<h1>Sing Up!</h1>
+
+<form method = "POST" action="{%url 'signup'%}">
+    <!--보안을 위해 난수를 발생함-->
+    {% csrf_token %}
+    
+    Username:
+    <br>
+    <input name="username" type="text" value="">
+    <br>
+    Password:
+    <br>
+    <input name="password1" type="password" value="">
+    <br>
+    Confirm Password:
+    <br>
+    <input name="password2" type="password" value="">
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Sign Up">
+</form>
+
+</div>
+{% endblock %}
