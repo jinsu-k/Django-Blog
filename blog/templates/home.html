@@ -32,7 +32,7 @@
         <!--Next Last-->
         {% if posts.has_next %}
         <a class="btn btn-outline-secondary" href="?page={{posts.next_page_number}}">Next</a>
-        <a class="btn btn-outline-secondary" href="?page={{posts.paginator.num_page}}">Last</a>
+        <a class="btn btn-outline-secondary" href="?page={{posts.paginator.num_pages}}">Last</a>
         {% endif %}
     </div>
 </body>
